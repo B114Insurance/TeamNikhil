@@ -1,0 +1,188 @@
+package com.crts.insurance.main.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.crts.insurance.main.model.Address;
+import com.crts.insurance.main.model.Application;
+import com.crts.insurance.main.model.City;
+import com.crts.insurance.main.model.Country;
+import com.crts.insurance.main.model.Customer;
+import com.crts.insurance.main.model.InsuranceCompany;
+import com.crts.insurance.main.model.Policy;
+import com.crts.insurance.main.model.Product;
+import com.crts.insurance.main.model.Quotation;
+import com.crts.insurance.main.model.State;
+import com.crts.insurance.main.model.Vehical;
+import com.crts.insurance.main.repository.CRAddressRepository;
+import com.crts.insurance.main.repository.CRApplicationRepository;
+import com.crts.insurance.main.repository.CRCityRepository;
+import com.crts.insurance.main.repository.CRCountryRepository;
+import com.crts.insurance.main.repository.CRCustomerRepository;
+import com.crts.insurance.main.repository.CRProductRepository;
+import com.crts.insurance.main.repository.CRQuotationRepository;
+import com.crts.insurance.main.repository.CRStateRepository;
+import com.crts.insurance.main.repository.CRVehicleRepository;
+import com.crts.insurance.main.repository.CRcompanyRepository;
+
+
+@Service
+public class CRServiceImpl  implements CRService
+{
+	@Autowired
+	
+	CRProductRepository crProductRepository;
+
+	@Autowired
+	
+	CRcompanyRepository crcompanyRepository;
+	@Autowired
+ CRCustomerRepository  crCustomerRepository;
+	
+	@Autowired 
+	CRApplicationRepository  crApplicationRepository;
+	
+	
+	@Autowired
+	
+	CRVehicleRepository  crVehicleRepository;
+	
+	
+	@Autowired 
+CRCountryRepository crCountryRepository;
+
+	@Autowired
+    CRStateRepository  crStateRepository;
+	
+	@Autowired
+	
+	CRQuotationRepository crQuotationRepository;
+	
+	
+	@Autowired
+	CRCityRepository crCityRepository;
+	
+	@Autowired
+	CRAddressRepository crRAddressRepository;
+	@Override
+	public Country saveCountry(Country country) {
+		crCountryRepository.save(country);
+		return country;
+	}
+
+	@Override
+	public List<Country> getCountry() {
+		List<Country> l=crCountryRepository.findAll();
+		return l;
+	}
+
+	@Override
+	public State saveState(State state) {
+	crStateRepository.save(state);
+		return state;
+	}
+
+	@Override
+	public List<State> getState() {
+		List<State> l=crStateRepository.findAll();
+		return l;
+	}
+
+	@Override
+	public City saveCity(City city) {
+		crCityRepository.save(city);
+		return city;
+	}
+
+	@Override
+	public List<City> getCity() {
+		// TODO Auto-generated method stub
+		
+		List<City> list=crCityRepository.findAll();
+		return list;
+	}
+
+	@Override
+	public Address saveallAddress(Address address) {
+		crRAddressRepository.save(address);
+		return address;
+	}
+
+	@Override
+	public List<Address> getAddress() {
+
+List<Address> l=crRAddressRepository.findAll();
+		return l;
+	}
+
+	@Override
+	public Customer saveCustomer(Customer customer) {
+		crCustomerRepository.save(customer);
+		return customer;
+	}
+
+	@Override
+	public Application saveApplication(Application application) {
+		crApplicationRepository.save(application);
+		return application;
+	}
+
+	@Override
+	public Vehical saveVehical(Vehical vehical) {
+		crVehicleRepository.save(vehical);
+		return vehical;
+	}
+
+	@Override
+	public Application getApplication(int applicationId) {
+	
+		return null;
+	}
+
+	@Override
+	public Quotation saveQuotation(Quotation quotation)
+	{
+		
+		crQuotationRepository.save(quotation);
+		
+		
+		return quotation;
+	}
+
+	@Override
+	public Policy savepolicy(Policy policy) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Vehical> getVehicle() {
+	List<Vehical> l=crVehicleRepository.findAll();
+	
+		return l;
+	}
+
+	@Override
+	public List<Application> getapplication() {
+		List<Application> applist=crApplicationRepository.findAll();
+		return applist;
+	}
+
+	@Override
+	public InsuranceCompany savecompany(InsuranceCompany campany)
+	{
+		crcompanyRepository.save(campany);
+		return campany;
+	}
+
+	@Override
+	public Product saveproduct(Product product) {
+		crProductRepository.save(product);
+		return product;
+	}
+	
+	
+
+}

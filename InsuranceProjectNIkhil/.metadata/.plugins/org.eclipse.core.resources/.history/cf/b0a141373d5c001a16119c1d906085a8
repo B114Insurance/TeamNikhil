@@ -1,0 +1,344 @@
+package com.crts.insurance.main.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.ls.LSInput;
+
+import com.crts.insurance.main.Model.Address;
+import com.crts.insurance.main.Model.Branch;
+import com.crts.insurance.main.Model.BranchType;
+import com.crts.insurance.main.Model.City;
+import com.crts.insurance.main.Model.Country;
+import com.crts.insurance.main.Model.Department;
+import com.crts.insurance.main.Model.InsuranceCompany;
+import com.crts.insurance.main.Model.Product;
+import com.crts.insurance.main.Model.Staff;
+import com.crts.insurance.main.Model.State;
+import com.crts.insurance.main.Service.ServiceImplementation;
+import com.crts.insurance.main.dto.CountryStatedto;
+
+@RestController
+public class MsController {
+	
+	
+	@Autowired
+	ServiceImplementation sr;
+	
+	@PostMapping("/storeProduct")
+	public String storeProduct(@RequestBody Product product)
+	{
+		
+		sr.saveProduct(product);
+		return "product saved";
+		
+		
+	}
+	
+	@GetMapping("/getproducts")
+	public List<Product> getproducts()
+	{
+		List<Product> l =sr.getProductList();
+		
+		return l;
+		
+		
+	}
+	@GetMapping("/getProduct/{productid}")
+	public Product getProduct(@PathVariable("productid") int productId)
+	{
+		
+		
+		
+		Product p= sr.getproduct(productId);
+		return p;
+		
+	}
+	
+	
+	@GetMapping("/getbranches")
+	public List<Branch> getbranches()
+	{
+		
+		
+		List<Branch> branch =sr.getbranches();
+		
+	return branch;
+		
+		
+	}
+	
+	@GetMapping("/getbranch/{branchId}")
+	public Branch getbranches(@PathVariable("branchId") int branchId)
+	{
+		
+		
+		Branch branch =sr.getbranch(branchId);
+		
+	return branch;
+		
+		
+	}
+	
+	
+	
+	@PostMapping("/storeBranch")
+	public String storeBranch(@RequestBody Branch branch)
+	{
+		
+		
+		sr.savebrachtype(branch);
+		
+		return "branch   store successfully";
+	}
+	
+	
+	@PostMapping("/storeBranchType")
+	public String storeBranchType(@RequestBody BranchType branchtype)
+	{
+		
+		
+		sr.savebrachtype(branchtype);
+		
+		return "branch type  store successfully";
+	}
+	
+	@PostMapping("/storestaff")
+	public String savestore(@RequestBody Staff staff)
+	{
+		sr.savestaff(staff);
+		
+		return "staff store successfully";
+		
+		
+		
+	}
+	
+	@GetMapping("/getstaff/{staffId}")
+	public Staff gatestore(@PathVariable("staffId") int  staff)
+	{
+		Staff s1= sr.getstaff(staff);
+		
+		return s1;
+		
+		
+		
+	}
+	
+	
+	@GetMapping("/getstaffs")
+	public List<Staff> getstaffs()
+	{
+		List<Staff> s1= sr.getstaffs();
+		
+		return s1;
+		
+		
+		
+	}
+	
+	
+	
+@GetMapping("/retriveComapany_details/{companyId}")
+public InsuranceCompany getcompantdtails(@PathVariable("companyId") String CompanyId)
+{
+	InsuranceCompany i = sr.getcompanydetails(CompanyId);
+	
+	
+	
+			return i;
+	
+	
+}
+
+
+@GetMapping("/getdepartments")
+public List<Department> getdepartment()
+{
+	List<Department> d = sr.getdepartments();
+	
+	return d;
+	
+	
+}
+
+	
+	@GetMapping("/getdepartment/{department}")
+	public Department getdepartment(@PathVariable("department") int department)
+	{
+		Department d = sr.getdepartment(department);
+		
+		return d;
+		
+		
+	}
+	
+	
+	@PostMapping("/storedepartment"  )
+	public String storedepartment(@RequestBody Department dept)
+	{
+		
+		sr.savedepartment(dept);
+		return "department done";
+		
+		
+	}
+	
+	@PostMapping("/storeInsurance"  )
+	public String storeInsurance(@RequestBody  InsuranceCompany insurance)
+	{
+		
+		sr.saveinsurance(insurance);
+		return "insurance done";
+		
+		
+	}
+	
+	
+	
+	@PostMapping("/storecountry")
+	public String savecountry(@RequestBody  Country c)
+	{
+		
+		sr.save(c);
+		return "country enter succcefully";
+		
+		
+	}
+	
+	@PostMapping("/storestate"  )
+	public String savestate(@RequestBody  State s)
+	{
+		System.out.println("/n/n/n/n/n/n");
+		//System.out.println(s.getCountry().getCountryName());
+		//System.out.println(s.getStateName);
+		//System.out.println(s.getSt().getCountryId() + " "+s.getSt().getCountryName()  + " "+ s.getSt().getCountryCode());
+		System.out.println("\n\n\n\n\n\n");	
+		
+		sr.savestate(s);
+		return "state  succcefully";
+		
+		
+	}
+
+	
+	
+	@PostMapping("/savecity")
+	public String saveadd(@RequestBody City city)
+	{
+		
+		sr.savecity(city);
+		return "City done";
+		
+	}
+	
+	
+	@PostMapping("/saveaddress")
+	public String saveadd(@RequestBody  Address address)
+	{
+		
+		sr.saveaddress(address);
+		return "address done";
+		
+	}
+
+	
+	
+	
+	@GetMapping("/retrivecountry/{countryID}")
+	public Country getcountry(@PathVariable("countryID") int countryId)
+	{
+		
+		Country c = sr.getcountry(countryId);
+		
+	
+		
+		
+		
+		
+		
+		return c;
+	
+	}
+	
+	
+	@GetMapping("/retrivestate/{stateID}")
+	public State getstate(@PathVariable("stateID") int stateId)
+	{
+		
+		State s= sr.getstate(stateId);
+		
+		
+		return s;
+	
+	}
+	
+	/*
+	 * @GetMapping("/retrivestateQuery/{stateID}") public List<CountryStatedto>
+	 * getstateQuery(@PathVariable("stateID") int stateId) {
+	 * 
+	 * List<CountryStatedto> s= sr.querydata(stateId);
+	 * 
+	 * 
+	 * return s;
+	 * 
+	 * }
+	 */
+	
+	@GetMapping("/retrivecity/{cityID}")
+	public City getcity(@PathVariable("cityID") int cityId)
+	{
+		
+		City c= sr.getcity(cityId);
+		
+		
+		return c;
+	
+	}
+	
+	@GetMapping("/retrivecountries")
+	public List<Country> getcountry()
+	{
+		
+		List<Country> c = sr.getcountries();
+		
+	
+		
+		return c;
+	
+	}
+	
+	
+	
+	@GetMapping("/retriveaddress/{addressId}")
+	public Address getaddress(@PathVariable("addressId") int addressId)
+	{
+		
+		Address address = sr.getAddress(addressId);
+		
+	
+		
+		return address ;
+	
+	}
+	
+	/*
+	 * @GetMapping("/getstateusingqueries/{id}") public List<CountryStatedto>
+	 * getjoininformation(@PathVariable("id") int id) {
+	 * 
+	 * List l = sr.getjoininformation(id); return null;
+	 * 
+	 * 
+	 * }
+	 */
+
+}

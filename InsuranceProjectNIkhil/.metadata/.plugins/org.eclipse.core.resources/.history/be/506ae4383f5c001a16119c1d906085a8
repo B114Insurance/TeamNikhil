@@ -1,0 +1,140 @@
+package com.crts.insurance.main.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.crts.insurance.main.model.Address;
+import com.crts.insurance.main.model.Application;
+import com.crts.insurance.main.model.City;
+import com.crts.insurance.main.model.Country;
+import com.crts.insurance.main.model.Customer;
+import com.crts.insurance.main.model.InsuranceCompany;
+import com.crts.insurance.main.model.Product;
+import com.crts.insurance.main.model.Quotation;
+import com.crts.insurance.main.model.State;
+import com.crts.insurance.main.model.Vehical;
+import com.crts.insurance.main.service.CRService;
+
+@RestController
+public class CRController
+{
+	
+	@Autowired
+	CRService crservice;
+	 @PostMapping("/saveCountry")
+	 public Country saveCountry(@RequestBody Country country)
+	 {
+		 System.out.println("##########");
+		 crservice.saveCountry(country);
+		 System.out.println(country );
+		 return country;
+	 }
+	 
+	 @GetMapping("/getCountry")
+	 public List<Country> getCountry()
+	 {
+		 List<Country> countries=crservice.getCountry();
+		 return countries;
+	 }
+	
+	@PostMapping("/saveState")
+	public State saveState(@RequestBody State state)
+	{
+		crservice.saveState(state);
+		return state;
+	}
+	
+	@GetMapping("/getState")
+	public List<State> getState()
+	{
+		List<State> states=crservice.getState();
+		return states;
+	}
+	
+	@PostMapping("/saveCity")
+	public City saveCity(@RequestBody City city)
+	{
+		crservice.saveCity(city);
+		return city;
+	}
+	
+	@GetMapping("/getcity")
+	public List<City> getcity()
+	{
+		List<City> city=crservice.getCity();
+		return city;
+	}
+	
+
+	 @PostMapping("/saveaddress")
+	  public Address saveadd(@RequestBody Address address) 
+	  {
+	  
+	  crservice.saveallAddress(address); return address;
+	  
+	  }
+	 
+	  @GetMapping("/getaddress")
+	  public List<Address> getData() 
+	  { 
+		  List<Address> addList=crservice.getAddress(); 
+	      return addList; 
+	  }
+	  
+	  @PostMapping("/saveapplication")
+		public  Application saveapplication(@RequestBody Application application)
+		{
+			crservice.saveApplication(application);
+			return application;
+		}
+	  
+	  @PostMapping("/savecustomer")
+		public  Customer savecustomer(@RequestBody Customer customer)
+		{
+			crservice.saveCustomer(customer);
+			return customer;
+		}
+	  @PostMapping("/savevehicle")
+		public  Vehical savevehicle(@RequestBody Vehical vehical)
+		{
+			crservice.saveVehical(vehical);
+			return vehical;
+		}
+	  @GetMapping("/getvehicle")
+	  public List<Vehical> getvehicle() 
+	  { 
+		  List<Vehical> vehiList=crservice.getVehicle();
+	      return vehiList; 
+	  }
+	  @GetMapping("/getapplication")
+	  public List<Application> getapplication()
+	  { 
+		  List<Application> applist=crservice.getapplication();
+	      return applist; 
+	  }
+	  @PostMapping("/savequatation")
+		public  Quotation savequatation(@RequestBody Quotation quotation)
+		{
+			crservice.saveQuotation(quotation);
+			return quotation;
+		}
+	  @PostMapping("/savecompany")
+		public  InsuranceCompany savecompany(@RequestBody InsuranceCompany company)
+		{
+			crservice.savecompany(company);
+			return company;
+		}
+	  @PostMapping("/saveproduct")
+		public  Product saveProduct(@RequestBody Product product)
+		{
+			crservice.saveproduct(product);
+			return product;
+		}
+	  
+}

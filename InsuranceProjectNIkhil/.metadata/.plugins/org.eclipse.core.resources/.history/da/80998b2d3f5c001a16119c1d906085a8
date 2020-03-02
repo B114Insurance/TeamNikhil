@@ -1,0 +1,5 @@
+package com.crts.insurance.main.repository;
+
+public interface CRRepository {
+
+}

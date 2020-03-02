@@ -1,0 +1,5 @@
+package com.crts.insurance.main.service;
+
+public interface CRService {
+
+}
