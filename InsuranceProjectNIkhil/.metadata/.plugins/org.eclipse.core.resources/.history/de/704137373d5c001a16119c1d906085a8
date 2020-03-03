@@ -1,9 +1,0 @@
-package com.crts.insurance.main.Repository;
-
-import org.springframework.data.repository.CrudRepository;
-
-import com.crts.insurance.main.Model.Product;
-
-public interface MSRepositoryProduct extends CrudRepository<Product, Integer> {
-
-}
