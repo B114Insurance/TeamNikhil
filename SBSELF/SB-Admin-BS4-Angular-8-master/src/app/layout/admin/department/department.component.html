@@ -1,0 +1,34 @@
+<div class="container">
+  <h1> DEPARTMENT DETAILS</h1>
+  <table class="table table-striped">
+  
+  
+  <th>deptId</th>
+  <th>deptName</th>
+  <th>deptLedger</th>
+  <th>company</th>
+  <th>branch</th>
+    <tbody >
+      
+      <tr *ngFor='let dp of dept'>
+        <td>{{dp.deptId}}</td>
+        <td>{{dp.deptName}}</td>
+        <td>{{dp.deptLedger}} </td>
+       
+        <td>{{dp.company}}</td>
+     
+       <td>{{dp.branch}}</td>
+     
+        <td><a class="btn">
+          <i class="fa fa-edit"(click)="editdata(icmp)"></i>
+        </a>
+        </td>
+        <td><a class="btn">
+          <i class="fa fa-trash"(click)="deletedata(icmp)"></i>
+          
+        </a>
+        </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

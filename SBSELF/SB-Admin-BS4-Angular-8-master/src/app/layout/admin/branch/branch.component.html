@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+  
+  <div class="form-group col-md-6">
+        <input type="text" class="form-control"  placeholder="Enter  branchName"[(ngModel)]="s.brh.branchName" >
+    </div>
+    <div class="form-group col-md-6">
+        <input type="text" class="form-control"  placeholder="Enter branchContactNo"[(ngModel)]="s.brh.branchContactNo" >
+    </div>
+  
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter branchEmail"[(ngModel)]="s.brh.branchEmail" >
+</div>
+  
+  <div class="form-group">
+      <input type="text" class="form-control"  placeholder="Enter address"[(ngModel)]="s.brh.address.addressId" >
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter companyName"[(ngModel)]="s.brh.company.companyName" >
+</div>
+
+<div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter branchTypeName"[(ngModel)]="s.brh.branchType.branchTypeName" >
+</div>
+<div class="form-group">
+  <input type="text" class="form-control"  placeholder="Enter branchTypeCode"[(ngModel)]="s.brh.branchType.branchTypeCode" >
+</div>
+  
+    <div class="form-group"> 
+        <button class="btn btn-success btn-lg btn-block" (click)="submitbranch(s.brh)">Submit</button>
+    </div>
+  
+    <div class="form-group"> 
+        <button class="btn btn-warning btn-lg btn-block"(click)="resetdata()">reset</button>
+    </div>
+  </div>
+<br/>
+<button routerLink="branchtype">SHOW BRANCH INFORMATION</button>
+<br/>
+<router-outlet></router-outlet>

@@ -1,0 +1,25 @@
+
+<div class="container">
+  <table class="table table-striped">
+    <th>addressId</th>
+    <th>buildingNo</th>
+    <th>areaName</th>
+    <th>city</th>
+    <tbody >
+      <tr *ngFor='let ad of add'>
+        <td>{{ad.addressId}}</td>
+        <td>{{ad.buildingNo}}</td>
+        <td>{{ad.areaName}}</td>
+        <td>{{ad.city.cityName}}</td>
+        <td><a class="btn">
+          <i class="fa fa-edit"></i>
+        </a>
+        </td>
+        <td><a class="btn">
+          <i class="fa fa-trash"></i>
+        </a>
+        </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

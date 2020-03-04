@@ -1,0 +1,52 @@
+<h1>ADD COMPANY</h1>
+<html>
+<head>
+<title>Bootstrap Icons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="container">
+
+
+
+<i class="glyphicon glyphicon-user" style="font-size:24px;"></i>
+<i class="glyphicon glyphicon-user" style="font-size:36px;"></i>
+
+</body>
+</html> 
+<div class="container">
+  <div class="row">
+  
+  <div class="form-group col-md-6">
+        <input type="text" class="form-control"  placeholder="Enter  companyName"[(ngModel)]="s.ic.companyName" >
+    </div>
+    <div class="form-group col-md-6">
+        <input type="text" class="form-control"  placeholder="Enter companyMobileno"[(ngModel)]="s.ic.companyMobileno" >
+    </div>
+  
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter companyWebsite"[(ngModel)]="s.ic.companyWebsite" >
+</div>
+  
+  <div class="form-group">
+      <input type="text" class="form-control"  placeholder="Enter companyEmail"[(ngModel)]="s.ic.companyEmail" >
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter companyLocation"[(ngModel)]="s.ic.companyLocation" >
+</div>
+<div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter companyFax"[(ngModel)]="s.ic.companyFax" >
+</div>
+<div class="form-group">
+    <input type="text" class="form-control"  placeholder="Enter Address"[(ngModel)]="s.ic.address.addressId" >
+</div>
+  
+    <div class="form-group"> 
+        <button class="btn btn-success btn-lg btn-block" (click)="submitdata(s.ic)">Submit</button>
+    </div>
+  
+    <div class="form-group"> 
+        <button class="btn btn-warning btn-lg btn-block"(click)="resetdata()">reset</button>
+    </div>
+  </div>
